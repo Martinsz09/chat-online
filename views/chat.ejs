@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div class="container">
+    <h2>Bem-vindo, <%= name %>!</h2>
+
+    <div class="chat-box">
+        <% messages.forEach(msg => { %>
+            <p><strong><%= msg.name %>:</strong> <%= msg.message %></p>
+        <% }); %>
+    </div>
+
+    <form action="/chat" method="POST">
+        <input type="hidden" name="name" value="<%= name %>">
+        <input type="text" name="message" placeholder="Enviar mensagem" required>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+</body>
+</html>
